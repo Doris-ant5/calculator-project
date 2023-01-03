@@ -1,5 +1,17 @@
 import java.util.Scanner;
 public class Main {
+    public static double giveMeNumber () {
+        Scanner scanner = new Scanner(System.in);
+        String inputAdditionFirstNumber;
+        do {
+            inputAdditionFirstNumber = scanner.nextLine();
+            if (!inputAdditionFirstNumber.matches("[0-9.]+")) {
+                System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
+            }
+        }
+        while (!inputAdditionFirstNumber.matches("[0-9.]+"));
+        return Double.parseDouble(inputAdditionFirstNumber);
+    }
     public static void main(String[] args) {
 
         String inputFromUser = "";
@@ -24,152 +36,64 @@ public class Main {
 
             } else if (inputFromUser.equals("1")) {
                 System.out.println("Prosze o podanie pierwszego skladnika");
-                String inputAdditionFirstNumber;
-                do {
-                    inputAdditionFirstNumber = scanner.nextLine();
-                    if (!inputAdditionFirstNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputAdditionFirstNumber.matches("[0-9.]+"));
-                Double inputAdditionFirstDouble = Double.parseDouble(inputAdditionFirstNumber);
+                double number1Addition = giveMeNumber();
                 System.out.println("Prosze o podanie drugiego skladnika");
-                String inputAdditionSecondNumber;
-                do {
-                    inputAdditionSecondNumber = scanner.nextLine();
-                    if (!inputAdditionSecondNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputAdditionSecondNumber.matches("[0-9.]+"));
-                Double inputAdditionSecondDouble = Double.parseDouble(inputAdditionSecondNumber);
-                double ResultOfAddition = inputAdditionFirstDouble + inputAdditionSecondDouble;
+                double number2Addition = giveMeNumber();
+                double ResultOfAddition = number1Addition + number2Addition;
                 System.out.println("Wynik operacji to: " + ResultOfAddition);
+
             } else if (inputFromUser.equals("2")) {
                 System.out.println("Prosze o podanie odjemnej");
-                String inputSubstractionFirstNumber;
-                do {
-                    inputSubstractionFirstNumber = scanner.nextLine();
-                    if (!inputSubstractionFirstNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputSubstractionFirstNumber.matches("[0-9.]+"));
-                Double inputSubstractionFirstDouble = Double.parseDouble(inputSubstractionFirstNumber);
+                double number1Subtraction = giveMeNumber();
                 System.out.println("Prosze o podanie odjemnika");
-                String inputSubstractionSecondNumber;
-                do {
-                    inputSubstractionSecondNumber = scanner.nextLine();
-                    if (!inputSubstractionSecondNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputSubstractionSecondNumber.matches("[0-9.]+"));
-                Double inputSubstractionSecondDouble = Double.parseDouble(inputSubstractionSecondNumber);
-                double ResultOfSubstraction = inputSubstractionFirstDouble - inputSubstractionSecondDouble;
-                System.out.println("Wynik operacji to: " + ResultOfSubstraction);
+                double number2Subtraction = giveMeNumber();
+                double ResultOfSubtraction = number1Subtraction - number2Subtraction;
+                System.out.println("Wynik operacji to: " + ResultOfSubtraction);
 
             } else if (inputFromUser.equals("3")) {
                 System.out.println("Prosze o podanie pierwszego czynnika");
-                String inputMultiplicationFirstNumber;
-                do {
-                    inputMultiplicationFirstNumber = scanner.nextLine();
-                    if (!inputMultiplicationFirstNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputMultiplicationFirstNumber.matches("[0-9.]+"));
-                Double inputMultiplicationFirstDouble = Double.parseDouble(inputMultiplicationFirstNumber);
+                double number1Multiply = giveMeNumber();
                 System.out.println("Prosze o podanie drugiego czynnika");
-                String inputMultiplicationSecondNumber;
-                do {
-                    inputMultiplicationSecondNumber = scanner.nextLine();
-                    if (!inputMultiplicationSecondNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputMultiplicationSecondNumber.matches("[0-9.]+"));
-                Double inputMultiplicationSecondDouble = Double.parseDouble(inputMultiplicationSecondNumber);
-                double ResultOfMultiplication = inputMultiplicationFirstDouble * inputMultiplicationSecondDouble;
-                System.out.println("Wynik operacji to: " + ResultOfMultiplication);
+                double number2Multiply = giveMeNumber();
+                double ResultOfMultiply = number1Multiply * number2Multiply;
+                System.out.println("Wynik operacji to: " + ResultOfMultiply);
 
             } else if (inputFromUser.equals("4")) {
                 System.out.println("Prosze o podanie dzielnej");
-                String inputDivisionFirstNumber;
-                do {
-                    inputDivisionFirstNumber = scanner.nextLine();
-                    if (!inputDivisionFirstNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputDivisionFirstNumber.matches("[0-9.]+"));
-                Double inputDivisionFirstDouble = Double.parseDouble(inputDivisionFirstNumber);
+                double number1Divide = giveMeNumber();
                 System.out.println("Prosze o podanie dzielnika");
-                String inputDivisionSecondNumber;
-                do {
-                    inputDivisionSecondNumber = scanner.nextLine();
-                    if (!inputDivisionSecondNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    } else if (inputDivisionSecondNumber.equals("0")) {
-                        System.out.println("Nie mozesz dzielic przez 0");
+
+                double number2Divide = 0;
+                while (number2Divide == 0) {
+                    number2Divide = giveMeNumber();
+                    if (number2Divide == 0) {
+                        System.out.println("Nie mozesz dzielic przez 0. Proszę wpisać liczbę różną od 0");
                     }
                 }
-                while (!inputDivisionSecondNumber.matches("[0-9.]+") || inputDivisionSecondNumber.equals("0"));
-                Double inputDivisionSecondDouble = Double.parseDouble(inputDivisionSecondNumber);
-                double ResultOfDivision = inputDivisionFirstDouble / inputDivisionSecondDouble;
+
+                double ResultOfDivision = number1Divide / number2Divide;
                 System.out.println("Wynik operacji to: " + ResultOfDivision);
 
             } else if (inputFromUser.equals("5")) {
                 System.out.println("Prosze o podanie zmiennej");
-                String inputSquareRootFirstNumber;
-                do {
-                    inputSquareRootFirstNumber = scanner.nextLine();
-                    if (!inputSquareRootFirstNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputSquareRootFirstNumber.matches("[0-9.]+"));
-                double inputSquareRootFirstDouble = Double.parseDouble(inputSquareRootFirstNumber);
-                double ResultOfSquareRoot = (Math.sqrt(inputSquareRootFirstDouble));
+                double number1SquareRoot = giveMeNumber();
+                double ResultOfSquareRoot = (Math.sqrt(number1SquareRoot));
                 System.out.println("Wynik operacji to: " + ResultOfSquareRoot);
 
             } else if (inputFromUser.equals("6")) {
                 System.out.println("Prosze o podanie stopnia pierwiastka");
-                String inputSquareNthFirstNumber;
-                do {
-                    inputSquareNthFirstNumber = scanner.nextLine();
-                    if (!inputSquareNthFirstNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputSquareNthFirstNumber.matches("[0-9.]+"));
-                double inputSquareNthFirstDouble = Double.parseDouble(inputSquareNthFirstNumber);
+                double number1NthSquare = giveMeNumber();
                 System.out.println("Prosze o podanie zmiennej");
-                String inputSquareNthSecondNumber;
-                do {
-                    inputSquareNthSecondNumber = scanner.nextLine();
-                    if (!inputSquareNthSecondNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputSquareNthSecondNumber.matches("[0-9.]+"));
-                double inputSquareNthSecondDouble = Double.parseDouble(inputSquareNthSecondNumber);
-                double ResultOfSquareNth = Math.pow(inputSquareNthSecondDouble, 1 / inputSquareNthFirstDouble);
-                System.out.println("Wynik operacji to: " + ResultOfSquareNth);
+                double number2NthSquare = giveMeNumber();
+                double ResultOfNthSquare = Math.pow(number2NthSquare, 1 / number1NthSquare);
+                System.out.println("Wynik operacji to: " + ResultOfNthSquare);
 
             } else if (inputFromUser.equals("7")) {
                 System.out.println("Prosze o podanie zmiennej");
-                String inputLogarithmFirstNumber;
-                do {
-                    inputLogarithmFirstNumber = scanner.nextLine();
-                    if (!inputLogarithmFirstNumber.matches("[0-9.]+")) {
-                        System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
-                    }
-                }
-                while (!inputLogarithmFirstNumber.matches("[0-9.]+"));
-                double inputLogarithmFirstDouble = Double.parseDouble(inputLogarithmFirstNumber);
-                double ResultOfLogarithm = Math.log(inputLogarithmFirstDouble) / Math.log(2);
+                double number1Logarithm = giveMeNumber();
+                double ResultOfLogarithm = Math.log(number1Logarithm) / Math.log(2);
                 System.out.println("Wynik operacji to: " + ResultOfLogarithm);
+
             } else {
                 System.out.println("Niepoprawna operacja");
             }
