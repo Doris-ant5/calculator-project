@@ -3,13 +3,15 @@ public class Main {
     public static double giveMeNumber () {
         Scanner scanner = new Scanner(System.in);
         String inputAdditionFirstNumber;
+        boolean isNumber;
         do {
             inputAdditionFirstNumber = scanner.nextLine();
-            if (!inputAdditionFirstNumber.matches("[0-9.]+")) {
+            isNumber = inputAdditionFirstNumber.matches("^([0-9]+)(\\.[0-9]+)?$");
+            if (!isNumber) {
                 System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
             }
         }
-        while (!inputAdditionFirstNumber.matches("[0-9.]+"));
+        while (!isNumber);
         return Double.parseDouble(inputAdditionFirstNumber);
     }
     public static void main(String[] args) {
