@@ -6,7 +6,7 @@ public class Main {
         boolean isNumber;
         do {
             inputAdditionFirstNumber = scanner.nextLine();
-            isNumber = inputAdditionFirstNumber.matches("^([0-9]+)(\\.[0-9]+)?$");
+            isNumber = inputAdditionFirstNumber.matches("^(-?[0-9]+)(\\.[0-9]+)?$");
             if (!isNumber) {
                 System.out.println("Podana wartość nie jest liczbą, proszę wpisać poprawną wartość");
             }
