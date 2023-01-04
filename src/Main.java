@@ -14,6 +14,38 @@ public class Main {
         while (!isNumber);
         return Double.parseDouble(inputAdditionFirstNumber);
     }
+    //funkcja dodawania
+
+    public static double giveMeAdditionOfNumbers (double numberOneToAdd, double numberTwoToAdd) {
+        return numberOneToAdd + numberTwoToAdd;
+    }
+
+    //funkcja odejmowania
+
+    public static double giveMeSubtractionOfNumbers (double numberOneToSubtraction, double numberTwoToSubtraction) {
+        return numberOneToSubtraction - numberTwoToSubtraction;
+    }
+
+    public static double giveMeMultiplyOfNumbers (double numberOneToMultiply, double numberTwoToMultiply) {
+        return numberOneToMultiply * numberTwoToMultiply;
+    }
+
+    public static double giveMeDivideOfNumbers (double numberOneToDivide, double numberTwoToDivide) {
+        return numberOneToDivide / numberTwoToDivide;
+    }
+
+    public static double giveMeSquareRootOfNumbers (double numberOneToSquareRoot) {
+        return (Math.sqrt(numberOneToSquareRoot));
+    }
+
+    public static double giveMeNthSquareOfNumbers (double numberOneToNthSquare, double numberTwoToNthSquare) {
+        return Math.pow(numberTwoToNthSquare, 1 / numberOneToNthSquare);
+    }
+
+    public static double giveMeLogarithmOfNumbers (double numberOneToLogarithm) {
+        return Math.log(numberOneToLogarithm) / Math.log(2);
+    }
+
     public static void main(String[] args) {
 
         String inputFromUser = "";
@@ -41,24 +73,24 @@ public class Main {
                 double number1Addition = giveMeNumber();
                 System.out.println("Prosze o podanie drugiego skladnika");
                 double number2Addition = giveMeNumber();
-                double ResultOfAddition = number1Addition + number2Addition;
-                System.out.println("Wynik operacji to: " + ResultOfAddition);
+                double resultOfAddition = giveMeAdditionOfNumbers(number1Addition,number2Addition);
+                System.out.println("Wynik operacji to: " + resultOfAddition);
 
             } else if (inputFromUser.equals("2")) {
                 System.out.println("Prosze o podanie odjemnej");
                 double number1Subtraction = giveMeNumber();
                 System.out.println("Prosze o podanie odjemnika");
                 double number2Subtraction = giveMeNumber();
-                double ResultOfSubtraction = number1Subtraction - number2Subtraction;
-                System.out.println("Wynik operacji to: " + ResultOfSubtraction);
+                double resultOfSubtraction = giveMeSubtractionOfNumbers(number1Subtraction,number2Subtraction);
+                System.out.println("Wynik operacji to: " + resultOfSubtraction);
 
             } else if (inputFromUser.equals("3")) {
                 System.out.println("Prosze o podanie pierwszego czynnika");
                 double number1Multiply = giveMeNumber();
                 System.out.println("Prosze o podanie drugiego czynnika");
                 double number2Multiply = giveMeNumber();
-                double ResultOfMultiply = number1Multiply * number2Multiply;
-                System.out.println("Wynik operacji to: " + ResultOfMultiply);
+                double resultOfMultiply = giveMeMultiplyOfNumbers(number1Multiply,number2Multiply);
+                System.out.println("Wynik operacji to: " + resultOfMultiply);
 
             } else if (inputFromUser.equals("4")) {
                 System.out.println("Prosze o podanie dzielnej");
@@ -72,29 +104,28 @@ public class Main {
                         System.out.println("Nie mozesz dzielic przez 0. Proszę wpisać liczbę różną od 0");
                     }
                 }
-
-                double ResultOfDivision = number1Divide / number2Divide;
-                System.out.println("Wynik operacji to: " + ResultOfDivision);
+                double resultOfDivide = giveMeDivideOfNumbers(number1Divide,number2Divide);
+                System.out.println("Wynik operacji to: " + resultOfDivide);
 
             } else if (inputFromUser.equals("5")) {
                 System.out.println("Prosze o podanie zmiennej");
                 double number1SquareRoot = giveMeNumber();
-                double ResultOfSquareRoot = (Math.sqrt(number1SquareRoot));
-                System.out.println("Wynik operacji to: " + ResultOfSquareRoot);
+                double resultOfSquareRoot = giveMeSquareRootOfNumbers(number1SquareRoot);
+                System.out.println("Wynik operacji to: " + resultOfSquareRoot);
 
             } else if (inputFromUser.equals("6")) {
                 System.out.println("Prosze o podanie stopnia pierwiastka");
                 double number1NthSquare = giveMeNumber();
                 System.out.println("Prosze o podanie zmiennej");
                 double number2NthSquare = giveMeNumber();
-                double ResultOfNthSquare = Math.pow(number2NthSquare, 1 / number1NthSquare);
-                System.out.println("Wynik operacji to: " + ResultOfNthSquare);
+                double resultOfNthSquare = giveMeNthSquareOfNumbers(number1NthSquare, number2NthSquare);
+                System.out.println("Wynik operacji to: " + resultOfNthSquare);
 
             } else if (inputFromUser.equals("7")) {
                 System.out.println("Prosze o podanie zmiennej");
                 double number1Logarithm = giveMeNumber();
-                double ResultOfLogarithm = Math.log(number1Logarithm) / Math.log(2);
-                System.out.println("Wynik operacji to: " + ResultOfLogarithm);
+                double resultOfLogarithm = giveMeLogarithmOfNumbers(number1Logarithm);
+                System.out.println("Wynik operacji to: " + resultOfLogarithm);
 
             } else {
                 System.out.println("Niepoprawna operacja");
