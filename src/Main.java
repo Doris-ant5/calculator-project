@@ -14,13 +14,10 @@ public class Main {
         while (!isNumber);
         return Double.parseDouble(inputAdditionFirstNumber);
     }
-    //funkcja dodawania
 
     public static double giveMeAdditionOfNumbers (double numberOneToAdd, double numberTwoToAdd) {
         return numberOneToAdd + numberTwoToAdd;
     }
-
-    //funkcja odejmowania
 
     public static double giveMeSubtractionOfNumbers (double numberOneToSubtraction, double numberTwoToSubtraction) {
         return numberOneToSubtraction - numberTwoToSubtraction;
@@ -44,6 +41,10 @@ public class Main {
 
     public static double giveMeLogarithmOfNumbers (double numberOneToLogarithm) {
         return Math.log(numberOneToLogarithm) / Math.log(2);
+    }
+
+    public static void printMeScore (double score) {
+        System.out.println("Wynik operacji to: " + score);
     }
 
     public static void main(String[] args) {
@@ -74,7 +75,8 @@ public class Main {
                 System.out.println("Prosze o podanie drugiego skladnika");
                 double number2Addition = giveMeNumber();
                 double resultOfAddition = giveMeAdditionOfNumbers(number1Addition,number2Addition);
-                System.out.println("Wynik operacji to: " + resultOfAddition);
+
+                printMeScore(resultOfAddition);
 
             } else if (inputFromUser.equals("2")) {
                 System.out.println("Prosze o podanie odjemnej");
@@ -82,7 +84,7 @@ public class Main {
                 System.out.println("Prosze o podanie odjemnika");
                 double number2Subtraction = giveMeNumber();
                 double resultOfSubtraction = giveMeSubtractionOfNumbers(number1Subtraction,number2Subtraction);
-                System.out.println("Wynik operacji to: " + resultOfSubtraction);
+                printMeScore(resultOfSubtraction);
 
             } else if (inputFromUser.equals("3")) {
                 System.out.println("Prosze o podanie pierwszego czynnika");
@@ -90,7 +92,7 @@ public class Main {
                 System.out.println("Prosze o podanie drugiego czynnika");
                 double number2Multiply = giveMeNumber();
                 double resultOfMultiply = giveMeMultiplyOfNumbers(number1Multiply,number2Multiply);
-                System.out.println("Wynik operacji to: " + resultOfMultiply);
+                printMeScore(resultOfMultiply);
 
             } else if (inputFromUser.equals("4")) {
                 System.out.println("Prosze o podanie dzielnej");
@@ -105,13 +107,13 @@ public class Main {
                     }
                 }
                 double resultOfDivide = giveMeDivideOfNumbers(number1Divide,number2Divide);
-                System.out.println("Wynik operacji to: " + resultOfDivide);
+                printMeScore(resultOfDivide);
 
             } else if (inputFromUser.equals("5")) {
                 System.out.println("Prosze o podanie zmiennej");
                 double number1SquareRoot = giveMeNumber();
                 double resultOfSquareRoot = giveMeSquareRootOfNumbers(number1SquareRoot);
-                System.out.println("Wynik operacji to: " + resultOfSquareRoot);
+                printMeScore(resultOfSquareRoot);
 
             } else if (inputFromUser.equals("6")) {
                 System.out.println("Prosze o podanie stopnia pierwiastka");
@@ -119,13 +121,13 @@ public class Main {
                 System.out.println("Prosze o podanie zmiennej");
                 double number2NthSquare = giveMeNumber();
                 double resultOfNthSquare = giveMeNthSquareOfNumbers(number1NthSquare, number2NthSquare);
-                System.out.println("Wynik operacji to: " + resultOfNthSquare);
+                printMeScore(resultOfNthSquare);
 
             } else if (inputFromUser.equals("7")) {
                 System.out.println("Prosze o podanie zmiennej");
                 double number1Logarithm = giveMeNumber();
                 double resultOfLogarithm = giveMeLogarithmOfNumbers(number1Logarithm);
-                System.out.println("Wynik operacji to: " + resultOfLogarithm);
+                printMeScore(resultOfLogarithm);
 
             } else {
                 System.out.println("Niepoprawna operacja");
