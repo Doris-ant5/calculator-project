@@ -66,87 +66,79 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             inputFromUser = scanner.nextLine();
 
-            if (inputFromUser.equals("e")) {
-                System.out.println("Dziękuję za skorzystanie z programu. Do widzenia");
-
-            } else if (inputFromUser.equals("1")) {
-                System.out.println("Prosze o podanie pierwszego skladnika");
-                double number1Addition = giveMeNumber();
-                System.out.println("Prosze o podanie drugiego skladnika");
-                double number2Addition = giveMeNumber();
-                double resultOfAddition = giveMeAdditionOfNumbers(number1Addition,number2Addition);
-
-                printMeScore(resultOfAddition);
-
-            } else if (inputFromUser.equals("2")) {
-                System.out.println("Prosze o podanie odjemnej");
-                double number1Subtraction = giveMeNumber();
-                System.out.println("Prosze o podanie odjemnika");
-                double number2Subtraction = giveMeNumber();
-                double resultOfSubtraction = giveMeSubtractionOfNumbers(number1Subtraction,number2Subtraction);
-                printMeScore(resultOfSubtraction);
-
-            } else if (inputFromUser.equals("3")) {
-                System.out.println("Prosze o podanie pierwszego czynnika");
-                double number1Multiply = giveMeNumber();
-                System.out.println("Prosze o podanie drugiego czynnika");
-                double number2Multiply = giveMeNumber();
-                double resultOfMultiply = giveMeMultiplyOfNumbers(number1Multiply,number2Multiply);
-                printMeScore(resultOfMultiply);
-
-            } else if (inputFromUser.equals("4")) {
-                System.out.println("Prosze o podanie dzielnej");
-                double number1Divide = giveMeNumber();
-                System.out.println("Prosze o podanie dzielnika");
-
-                double number2Divide = 0;
-                while (number2Divide == 0) {
-                    number2Divide = giveMeNumber();
-                    if (number2Divide == 0) {
-                        System.out.println("Nie mozesz dzielic przez 0. Proszę wpisać liczbę różną od 0");
-                    }
+            switch (inputFromUser) {
+                case "e" -> System.out.println("Dziękuję za skorzystanie z programu. Do widzenia");
+                case "1" -> {
+                    System.out.println("Prosze o podanie pierwszego skladnika");
+                    double number1Addition = giveMeNumber();
+                    System.out.println("Prosze o podanie drugiego skladnika");
+                    double number2Addition = giveMeNumber();
+                    double resultOfAddition = giveMeAdditionOfNumbers(number1Addition, number2Addition);
+                    printMeScore(resultOfAddition);
                 }
-                double resultOfDivide = giveMeDivideOfNumbers(number1Divide,number2Divide);
-                printMeScore(resultOfDivide);
-
-            } else if (inputFromUser.equals("5")) {
-                System.out.println("Prosze o podanie zmiennej");
-
-                double number1SquareRoot = -1;
-                while (number1SquareRoot < 0) {
+                case "2" -> {
+                    System.out.println("Prosze o podanie odjemnej");
+                    double number1Subtraction = giveMeNumber();
+                    System.out.println("Prosze o podanie odjemnika");
+                    double number2Subtraction = giveMeNumber();
+                    double resultOfSubtraction = giveMeSubtractionOfNumbers(number1Subtraction, number2Subtraction);
+                    printMeScore(resultOfSubtraction);
+                }
+                case "3" -> {
+                    System.out.println("Prosze o podanie pierwszego czynnika");
+                    double number1Multiply = giveMeNumber();
+                    System.out.println("Prosze o podanie drugiego czynnika");
+                    double number2Multiply = giveMeNumber();
+                    double resultOfMultiply = giveMeMultiplyOfNumbers(number1Multiply, number2Multiply);
+                    printMeScore(resultOfMultiply);
+                }
+                case "4" -> {
+                    System.out.println("Prosze o podanie dzielnej");
+                    double number1Divide = giveMeNumber();
+                    System.out.println("Prosze o podanie dzielnika");
+                    double number2Divide = 0;
+                    while (number2Divide == 0) {
+                        number2Divide = giveMeNumber();
+                        if (number2Divide == 0) {
+                            System.out.println("Nie mozesz dzielic przez 0. Proszę wpisać liczbę różną od 0");
+                        }
+                    }
+                    double resultOfDivide = giveMeDivideOfNumbers(number1Divide, number2Divide);
+                    printMeScore(resultOfDivide);
+                }
+                case "5" -> {
+                    System.out.println("Prosze o podanie zmiennej");
+                    double number1SquareRoot = -1;
+                    while (number1SquareRoot < 0) {
                         number1SquareRoot = giveMeNumber();
                         if (number1SquareRoot < 0) {
-                        System.out.println("Nie mozesz pierwiastkować liczb ujemnych");
+                            System.out.println("Nie mozesz pierwiastkować liczb ujemnych");
                         }
+                    }
+                    double resultOfSquareRoot = giveMeSquareRootOfNumbers(number1SquareRoot);
+                    printMeScore(resultOfSquareRoot);
                 }
-
-                double resultOfSquareRoot = giveMeSquareRootOfNumbers(number1SquareRoot);
-                printMeScore(resultOfSquareRoot);
-
-            } else if (inputFromUser.equals("6")) {
-                System.out.println("Prosze o podanie stopnia pierwiastka");
-                double number1NthSquare = giveMeNumber();
-                System.out.println("Prosze o podanie zmiennej");
-                double number2NthSquare = giveMeNumber();
-                double resultOfNthSquare = giveMeNthSquareOfNumbers(number1NthSquare, number2NthSquare);
-                printMeScore(resultOfNthSquare);
-
-            } else if (inputFromUser.equals("7")) {
-                System.out.println("Prosze o podanie zmiennej");
-
-                double number1Logarithm = -1;
-                while (number1Logarithm < 0) {
+                case "6" -> {
+                    System.out.println("Prosze o podanie stopnia pierwiastka");
+                    double number1NthSquare = giveMeNumber();
+                    System.out.println("Prosze o podanie zmiennej");
+                    double number2NthSquare = giveMeNumber();
+                    double resultOfNthSquare = giveMeNthSquareOfNumbers(number1NthSquare, number2NthSquare);
+                    printMeScore(resultOfNthSquare);
+                }
+                case "7" -> {
+                    System.out.println("Prosze o podanie zmiennej");
+                    double number1Logarithm = -1;
+                    while (number1Logarithm < 0) {
                         number1Logarithm = giveMeNumber();
                         if (number1Logarithm < 0) {
                             System.out.println("Podstawa logarytmu nie moze byc liczba ujemna");
                         }
+                    }
+                    double resultOfLogarithm = giveMeLogarithmOfNumbers(number1Logarithm);
+                    printMeScore(resultOfLogarithm);
                 }
-
-                double resultOfLogarithm = giveMeLogarithmOfNumbers(number1Logarithm);
-                printMeScore(resultOfLogarithm);
-
-            } else {
-                System.out.println("Niepoprawna operacja");
+                default -> System.out.println("Niepoprawna operacja");
             }
         }
     }
