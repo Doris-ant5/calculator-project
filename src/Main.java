@@ -111,7 +111,15 @@ public class Main {
 
             } else if (inputFromUser.equals("5")) {
                 System.out.println("Prosze o podanie zmiennej");
-                double number1SquareRoot = giveMeNumber();
+
+                double number1SquareRoot = -1;
+                while (number1SquareRoot < 0) {
+                        number1SquareRoot = giveMeNumber();
+                        if (number1SquareRoot < 0) {
+                        System.out.println("Nie mozesz pierwiastkować liczb ujemnych");
+                        }
+                }
+
                 double resultOfSquareRoot = giveMeSquareRootOfNumbers(number1SquareRoot);
                 printMeScore(resultOfSquareRoot);
 
@@ -125,7 +133,15 @@ public class Main {
 
             } else if (inputFromUser.equals("7")) {
                 System.out.println("Prosze o podanie zmiennej");
-                double number1Logarithm = giveMeNumber();
+
+                double number1Logarithm = -1;
+                while (number1Logarithm < 0) {
+                        number1Logarithm = giveMeNumber();
+                        if (number1Logarithm < 0) {
+                            System.out.println("Podstawa logarytmu nie moze byc liczba ujemna");
+                        }
+                }
+
                 double resultOfLogarithm = giveMeLogarithmOfNumbers(number1Logarithm);
                 printMeScore(resultOfLogarithm);
 
